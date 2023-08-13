@@ -1,0 +1,154 @@
+﻿@*
+<section id="book-a-table" class="book-a-table" style="margin-top:70px">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Reservation</h2>
+            <p>Book a Table</p>
+        </div>
+
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group mt-3">
+                    <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group mt-3">
+                    <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group mt-3">
+                    <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+                    <div class="validate"></div>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                <div class="validate"></div>
+            </div>
+            <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+            </div>
+            <div class="text-center"><button type="submit">Book a Table</button></div>
+        </form>
+
+    </div>
+</section><!-- End Book A Table Section -->
+
+
+*@
+
+@{Layout = null;}
+
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sign Up Form by Colorlib</title>
+
+        <!-- Font Icon -->
+        <link rel="stylesheet" href="~/booking/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+        <!-- Main css -->
+        <link rel="stylesheet" href="~/booking/css/style.css">
+        <link href="~/vendor/animate.css/animate.min.css" rel="stylesheet">
+        <link href="~/vendor/aos/aos.css" rel="stylesheet">
+        <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="~/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="~/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="~/css/style.css" rel="stylesheet">  
+        <link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+</head>
+<body>
+    <header id="header" class="fixed-top d-flex align-items-cente">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+
+            <h1 class="logo me-auto me-lg-0"><a href="index.html">Restaurantly</a></h1>
+        </div>
+
+    </header><!-- End Header -->
+    <main class="main">
+
+        <div class="container" style="background:none">
+            <div class="booking-content">
+                <div class="booking-image">
+                    <img class="booking-img" src="~/booking/images/form-img.jpg" alt="Booking Image" >
+                </div>
+                <div class="booking-form" >
+                    <form id="booking-form">
+                        <h2>Booking place for your dinner!</h2>
+                        <div class="form-group form-input">
+                            <input type="text" name="name" id="name" value="" required="">
+                            <label for="name" class="form-label">Your name</label>
+                        </div>
+                        <div class="form-group form-input">
+                            <input type="number" name="phone" id="phone" value="" required="">
+                            <label for="phone" class="form-label">Your phone number</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="select-list">
+
+                                <ul class="list-item" id="time" name="time"><li value="" class="init">Time</li><li value="6pm">6:00 PM</li><li value="7pm">7:00 PM</li></ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="select-list">
+
+                                <ul class="list-item" id="food" name="food"><li value="" class="init">Food</li><li value="seasonalfish">Seasonal steamed fish</li><li value="assortedmushrooms">Assorted mushrooms</li></ul>
+                            </div>
+                        </div>
+                        <div class="form-radio">
+                            <label class="label-radio"> Select Your Dining Space</label>
+                            <div class="radio-item-list">
+                                <span class="radio-item">
+                                    <input type="radio" name="number_people" value="2" id="number_people_2">
+                                    <label for="number_people_2">2</label>
+                                </span>
+                                <span class="radio-item active">
+                                    <input type="radio" name="number_people" value="4" id="number_people_4" checked="checked">
+                                    <label for="number_people_4">4</label>
+                                </span>
+                                <span class="radio-item">
+                                    <input type="radio" name="number_people" value="6" id="number_people_6">
+                                    <label for="number_people_6">6</label>
+                                </span>
+                                <span class="radio-item">
+                                    <input type="radio" name="number_people" value="8" id="number_people_8">
+                                    <label for="number_people_8">8</label>
+                                </span>
+                                <span class="radio-item">
+                                    <input type="radio" name="number_people" value="10" id="number_people_10">
+                                    <label for="number_people_10">10</label>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-submit">
+                            <input type="submit" value="Book now" class="submit" id="submit" name="submit">
+                            <a href="#" class="vertify-booking">Verify your booking info from your phone</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+    
+</html>

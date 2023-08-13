@@ -1,0 +1,106 @@
+﻿@model List<Message>
+@{
+    ViewData["Title"] = "ShowMessage";
+}
+
+
+<html>
+<head>
+    <link href="~\assets\css\style.css" rel="stylesheet" />
+    <link href="~\assets\imagefile.css" rel="stylesheet" />
+    <link href="~\assets\css\styletable.css" rel="stylesheet" />
+    <link href="~\assets\vendor\animate.css\animate.compat.css" rel="stylesheet" />
+    <link href="~\assets\vendor\animate.css\animate.css" rel="stylesheet" />
+    <link href="~\assets\vendor\animate.css\animate.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\aos\aos.css" rel="stylesheet" />
+    <link href="~\assets\vendor\boxicons\css\animations.css" rel="stylesheet" />
+    <link href="~\assets\vendor\boxicons\css\boxicons.css" rel="stylesheet" />
+    <link href="~\assets\vendor\boxicons\css\boxicons.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\boxicons\css\transformations.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\all.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\all.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\brands.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\brands.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\fontawesome.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\fontawesome.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\regular.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\regular.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\solid.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\solid.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\svg-with-js.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\svg-with-js.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\v4-font-face.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\v4-font-face.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\v4-shims.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\v4-shims.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\v5-font-face.css" rel="stylesheet" />
+    <link href="~\assets\vendor\fontawesome-free\css\v5-font-face.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\swiper\swiper-bundle.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\glightbox\css\glightbox.css" rel="stylesheet" />
+    <link href="~\assets\vendor\glightbox\css\glightbox.min.css" rel="stylesheet" />
+    <link href="~\assets\vendor\glightbox\css\plyr.css" rel="stylesheet" />
+    <link href="~\assets\vendor\glightbox\css\plyr.min.css" rel="stylesheet" />
+</head>
+
+    <body>
+
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials" style="margin-top:70px">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Users Feedback</h2>
+                </div>
+
+                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        @foreach (var item in Model)
+                        {
+                            if (Model.Count > 3)
+                            {
+                        
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <p >
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                            @item.MessageDescription
+                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="~/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                                        <h3>@item.Name</h3>
+                                        <h4>@item.Email</h4>
+                                        <h4>@DateTime.Now</h4>
+
+                                    </div>
+                                </div>
+
+                                <!-- End testimonial item -->
+                            }
+                            else
+                            {
+                                <div class="testimonial-item">
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                        @item.MessageDescription
+                                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                    <img src="~/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                                    <h3>@item.Name</h3>
+                                    <h4>@item.Email</h4>
+                                    <h4>@DateTime.Now</h4>
+
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+        </section><!-- End Testimonials Section -->
+
+
+        <script src="~\assets\js\main.js"></script>
+        <script src="~\assets\vendor\swiper\swiper-bundle.min.js"></script>
+    </body>
+</html>

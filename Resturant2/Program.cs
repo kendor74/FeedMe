@@ -1,3 +1,5 @@
+using FeedMe.Models.MessageHandler;
+using FeedMe.Models.UserMessagesHandler;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Resturant2.Data;
@@ -7,6 +9,8 @@ using System.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+//Database Connection Injection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -14,6 +18,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 var resturantConnectionString = builder.Configuration.GetConnectionString("ResturantConnection");
 builder.Services.AddDbContext<ResturantDbContext>(options =>
     options.UseSqlServer(resturantConnectionString));
+
+//Interfaces Injection
+builder.Services.AddScoped<ImessageFunc, MessagesHelper>();
+builder.Services.AddScoped<IuserUserMessagessFunc , UserMessageHelper>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 

@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using FeedMe.Models.MessageHandler;
+using Microsoft.AspNetCore.Identity;
 using Resturant2.Data.Migrations;
 using System.ComponentModel.DataAnnotations;
 
-namespace Resturant2.Models
+
+namespace FeedMe.Models.UserMessagesHandler
 {
-    public class UserMessages 
+    public class UserMessages
     {
         [Key]
         public int Id { get; set; }
@@ -15,6 +17,6 @@ namespace Resturant2.Models
         public int MessageID { get; set; }
         public virtual Message Message { get; set; }
 
-        
+
     }
 }

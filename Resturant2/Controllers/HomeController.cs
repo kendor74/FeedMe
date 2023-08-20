@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using FeedMe.Models.MessageHandler;
+using FeedMe.Models.UserMessagesHandler;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,14 +13,19 @@ namespace Resturant2.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        ResturantDbContext _context;
+        private readonly ImessageFunc _messagesHelper;
+        private readonly IuserUserMessagessFunc _usermessagesHelper;
         SignInManager<IdentityUser> _SignInManager;
         UserManager<IdentityUser> _UserManager;
         public HomeController(ILogger<HomeController> logger, ResturantDbContext context , 
-            SignInManager<IdentityUser> signInManager , UserManager<IdentityUser> userManager)
+            SignInManager<IdentityUser> signInManager , UserManager<IdentityUser> userManager,
+            IuserUserMessagessFunc userMessageHelper , ImessageFunc messagesHelper)
         {
             _logger = logger;
-            _context = context;
+            
+            _messagesHelper = messagesHelper;
+            _usermessagesHelper = userMessageHelper;
+
             _SignInManager = signInManager;
             _UserManager = userManager;
         }
@@ -67,15 +74,14 @@ namespace Resturant2.Controllers
             //working on auto increment of id even the model is null
             msg.MessageDescription= Request.Form["message"].ToString();
             msg.Date = DateTime.Now;
-            _context.Messages.Add(msg);
-            _context.SaveChanges();
+            _messagesHelper.Insert(msg);
             return RedirectToAction("Index");
         }
 
         [Authorize]
         public IActionResult ShowMessage()
         {
-            return View(_context.Messages.ToList());
+            return View(_messagesHelper.GetMessages());
         }
         //void change()
         //{

@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FeedMe.Models.MessageHandler;
+using FeedMe.Models.UserMessagesHandler;
+using Microsoft.EntityFrameworkCore;
 
 namespace Resturant2.Models
 {

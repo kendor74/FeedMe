@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+#region DataBase
 //Database Connection Injection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -18,17 +19,23 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 var resturantConnectionString = builder.Configuration.GetConnectionString("ResturantConnection");
 builder.Services.AddDbContext<ResturantDbContext>(options =>
     options.UseSqlServer(resturantConnectionString));
+#endregion 
 
+
+#region Interfaces Helper
 //Interfaces Injection
 builder.Services.AddScoped<ImessageFunc, MessagesHelper>();
 builder.Services.AddScoped<IuserUserMessagessFunc , UserMessageHelper>();
+#endregion
 
+
+#region System Services
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
-
+#endregion
 
 
 

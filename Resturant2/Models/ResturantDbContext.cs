@@ -1,4 +1,5 @@
-﻿using FeedMe.Models.MessageHandler;
+﻿using FeedMe.Models.FoodHandler;
+using FeedMe.Models.MessageHandler;
 using FeedMe.Models.UserMessagesHandler;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,5 +27,6 @@ namespace Resturant2.Models
 
         public DbSet<Message> Messages { get; set; }
         public DbSet<UserMessages> UserMessages { get; set; }
+        public DbSet<Food> Menus { get; set; }
     }
 }

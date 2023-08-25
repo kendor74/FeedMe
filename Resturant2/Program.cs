@@ -1,3 +1,4 @@
+using FeedMe.Models.FoodHandler;
 using FeedMe.Models.MessageHandler;
 using FeedMe.Models.UserMessagesHandler;
 using Microsoft.AspNetCore.Identity;
@@ -26,6 +27,7 @@ builder.Services.AddDbContext<ResturantDbContext>(options =>
 //Interfaces Injection
 builder.Services.AddScoped<ImessageFunc, MessagesHelper>();
 builder.Services.AddScoped<IuserUserMessagessFunc , UserMessageHelper>();
+builder.Services.AddScoped<IfoodFunc, FoodHelper>();
 #endregion
 
 
@@ -56,6 +58,7 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+
 app.UseRouting();
 
 app.UseAuthentication();
@@ -64,6 +67,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapRazorPages();
 
 app.Run();

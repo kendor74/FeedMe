@@ -1,0 +1,43 @@
+﻿@using FeedMe.Models.FoodHandler;
+
+@{
+    ViewData["Title"] = "ShowMeals";
+}
+
+@model List<Food>;
+
+
+<section id="testimonials" class="testimonials" style="margin-top:70px">
+    <div class="container" data-aos="fade-up">
+
+            
+
+        <div class="row mt-5" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-8 mt-5 mt-lg-0" ">
+                @foreach (var item in Model)
+                {
+                   <div style="border:solid 2px white; border-radius: 20px ; margin:20px; padding:10px">
+                           
+                      <h3>@item.Name</h3>
+                      <h4>@item.Price EGP</h4>
+                       <p>
+                       @item.Description
+    
+                       </p>
+                       <img src="@item.Image" class="testimonial-img" alt="">
+
+                        <a asp-controller="Shopping" asp-action="UpdateMeal" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
+
+                   </div>
+
+
+                   
+                }
+            </div>
+            <div class=""></div>
+        </div>
+
+    </div>
+</section>
+
+<!-- End Testimonials Section -->

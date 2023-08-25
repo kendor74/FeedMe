@@ -1,0 +1,729 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using FeedMe.Models.FoodHandler;
+
+@model List<Food>
+@{
+
+    int count = ViewBag.Food;
+}
+
+
+
+
+<style>
+    
+    body{
+        background-color: #2e1e1e;
+    }
+    .no-js #loader {
+        display: none;
+    }
+
+    .js #loader {
+        display: block;
+        position: absolute;
+        left: 100px;
+        top: 0;
+    }
+
+    .se-pre-con {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background-color: #FFF;
+        display: flex;
+        justify-content: center;
+    }
+    .custom{
+        flex: 0 0 auto;
+        width: 75%;
+        border-radius: 20px;
+        border: solid;
+        border-color: #cda45e;
+        background: #222222;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+
+
+
+
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+<div class="container" style="margin-top:140px">
+    <div class="row">
+        <div class="col-lg-3">
+            <!----> <div class="listing hide-categories" controller="List" style="background-color:#705d56;color:white; padding:20px">
+                <div id="closeMobileFilter" class="d-block d-lg-none"><i class="fas fa-times"></i></div> <div class="categories">
+                    <div class="categories-title pb-2 d-flex justify-content-between align-items-center"><h5>Categories</h5> <a href="#" class="clear-button">Clear</a></div> <form action="#" class="form-group"><input type="text" placeholder="Search" class="form-control"> <i class="fas fa-search"></i></form> <div class="sub-category">
+                        <div class="form-check">
+                             <div>
+                                <div class="form-check second-level">
+                                    <input type="checkbox" id="chkChildCat20154" class="form-check-input" value="20154"> <label for="chkChildCat20154" class="form-check-label">
+                                        Salad <!---->
+                                    </label>
+                                </div><div class="form-check second-level">
+                                    <input type="checkbox" id="chkChildCat20155" class="form-check-input" value="20155"> <label for="chkChildCat20155" class="form-check-label">
+                                        Pasta <!---->
+                                    </label>
+                                </div><div class="form-check second-level">
+                                    <input type="checkbox" id="chkChildCat20156" class="form-check-input" value="20156"> <label for="chkChildCat20156" class="form-check-label">
+                                        Italian Hawawshi <!---->
+                                    </label>
+                                </div><div class="form-check second-level">
+                                    <input type="checkbox" id="chkChildCat20157" class="form-check-input" value="20157"> <label for="chkChildCat20157" class="form-check-label">
+                                        Crep &amp; Quesadilla <!---->
+                                    </label>
+                                </div><div class="form-check second-level">
+                                    <input type="checkbox" id="chkChildCat20158" class="form-check-input" value="20158"> <label for="chkChildCat20158" class="form-check-label">
+                                        Pizza <!---->
+                                    </label>
+                                </div><div class="form-check second-level">
+                                    <input type="checkbox" id="chkChildCat20159" class="form-check-input" value="20159"> <label for="chkChildCat20159" class="form-check-label">
+                                        Savory Feteer <!---->
+                                    </label>
+                                </div><div class="form-check second-level">
+                                    <input type="checkbox" id="chkChildCat20160" class="form-check-input" value="20160"> <label for="chkChildCat20160" class="form-check-label">
+                                        Sweet Feteer <!---->
+                                    </label>
+                                </div><div class="form-check second-level">
+                                    <input type="checkbox" id="chkChildCat20163" class="form-check-input" value="20163"> <label for="chkChildCat20163" class="form-check-label">
+                                        Wrap Sandwich <!---->
+                                    </label>
+                                </div><div class="form-check second-level">
+                                    <input type="checkbox" id="chkChildCat20166" class="form-check-input" value="20166"> <label for="chkChildCat20166" class="form-check-label">
+                                        Beverages <!---->
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <div class="size">
+                    <div class="size-title pb-2 pt-3 d-flex justify-content-between align-items-center"><h5>Size</h5> <a href="#" class="clear-button">Clear</a></div> <form action="#" class="form-group"><input type="text" placeholder="Search" class="form-control"> <i class="fas fa-search"></i></form> <div class="sub-category">
+                        <div class="form-check">
+                            <input type="checkbox" id="chkSize10090" class="form-check-input" value="10090"> <label for="chkSize10090" class="form-check-label">
+                                Large
+                            </label>
+                        </div><div class="form-check">
+                            <input type="checkbox" id="chkSize10114" class="form-check-input" value="10114"> <label for="chkSize10114" class="form-check-label">
+                                Medium
+                            </label>
+                        </div><div class="form-check">
+                            <input type="checkbox" id="chkSize10123" class="form-check-input" value="10123"> <label for="chkSize10123" class="form-check-label">
+                                packet
+                            </label>
+                        </div><div class="form-check">
+                            <input type="checkbox" id="chkSize10115" class="form-check-input" value="10115"> <label for="chkSize10115" class="form-check-label">
+                                حجم كبير
+                            </label>
+                        </div><div class="form-check">
+                            <input type="checkbox" id="chkSize10109" class="form-check-input" value="10109"> <label for="chkSize10109" class="form-check-label">
+                                صغير
+                            </label>
+                        </div><div class="form-check">
+                            <input type="checkbox" id="chkSize10116" class="form-check-input" value="10116"> <label for="chkSize10116" class="form-check-label">
+                                كبير
+                            </label>
+                        </div><div class="form-check">
+                            <input type="checkbox" id="chkSize10106" class="form-check-input" value="10106"> <label for="chkSize10106" class="form-check-label">
+                                وحدة
+                            </label>
+                        </div><div class="form-check">
+                            <input type="checkbox" id="chkSize10135" class="form-check-input" value="10135"> <label for="chkSize10135" class="form-check-label">
+                                وسط
+                            </label>
+                        </div>
+                    </div>
+                </div> 
+                <div class="price">
+                   <div class="price-title pb-2 pt-3 d-flex justify-content-between align-items-center">
+                       <h5>Price</h5> 
+                   </div> 
+                   <div class="sub-categories">
+                       <div class="filtering__widget">
+                                <!--fragment#2bcd94dc67#head-->
+
+                            <div fragment="2bcd94dc67" class="slider-result d-flex justify-content-between align-items-center">
+                                <span id="minrangeSliderResult">10 EGP</span> 
+                                <span id="maxrangeSliderResult">140 EGP</span>
+                            </div> 
+                            <div fragment="2bcd94dc67" id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;">
+
+                                </div>
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span>
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 100%;"></span>
+                            </div>
+                            <!--fragment#2bcd94dc67#tail-->
+                       </div>
+                        <button style="margin-bottom:20px; margin-top:10px" type="button" class="btn btn-primary btn-block apply-btn" >Filter Now</button>
+                    </div>
+               </div> 
+                <div class="reset">
+                   <button type="button" class="btn btn-secondary btn-block reset-btn" >Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!--Start Filtering Result-->
+
+
+        <div class="col-lg-9 col-12 custom">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 pb-3 border-bottom border-color-secondary">
+                        <span class="showing-results__count">Showing @count  Meals</span> 
+                        <div class="right-filter d-flex flex-wrap align-items-center">
+                            <div id="openMobileFilter" class="grid-filter pr-3">
+                                <i class="fas fa-filter mx-1"></i>
+                                <span class="mx-1">Filter</span>
+                            </div> <div class="d-flex align-items-center">
+                                <span class="sort-by flex-shrink-0 text-md mr-3">Sort By</span> 
+                                <select class="form-control sorting-select bg-white">
+                                    <option value="bestseller">Best Seller</option> 
+                                    <option value="newarrivals">New Arrivals</option> 
+                                    <option value="alphaasc">Product Name A-Z</option> 
+                                    <option value="alphadesc">Product Name Z-A</option> 
+                                    <option value="heighestprice">Highest Price</option> 
+                                    <option value="lowestprice">Lowest Price</option> 
+                                    <option value="AvailableStock">ِِِAvailable On Stock</option>
+                                </select>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+
+                <!--End Filtering Result-->
+                
+                
+                <!--Start Food Carts-->
+
+                <div class="special-slider d-flex flex-wrap" style="width: 100%;">
+                    
+                    
+                    <div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                             <div class="special-slider-img"><a href="/en/product/21514"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                     <a href="/en/product/21514"><h6>Tuna Salad</h6></a> <div class="special-slider-price"><span>75 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21516"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21516"><h6>Fattoosh Salad</h6></a> <div class="special-slider-price"><span>35 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21517"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21517"><h6>Tandoori spicy pizza</h6></a> <div class="special-slider-price"><span>85 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21519"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21519"><h6>Chicken Curry Pizza</h6></a> <div class="special-slider-price"><span>85 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21521"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21521"><h6>Philly Pizza</h6></a> <div class="special-slider-price"><span>115 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21515"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21515"><h6>Chef Salad</h6></a> <div class="special-slider-price"><span>65 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21525"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21525"><h6>Tandoori Spicy Feteer</h6></a> <div class="special-slider-price"><span>85 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21527"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21527"><h6>Chicken Curry Feteer</h6></a> <div class="special-slider-price"><span>90 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20829"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/0f49d2ac-1391-41c2-9377-fca5ea49b69d-637638783435774394.png" alt="Arabiata Pasta" title="Arabiata Pasta" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20829"><h6>Arabiata Pasta</h6></a> <div class="special-slider-price"><span>40 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20830"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/6347be92-c2f0-4ee6-ac33-8d83a541192a-637638783219407729.png" alt="Bolognese Pasta" title="Bolognese Pasta" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20830"><h6>Bolognese Pasta</h6></a> <div class="special-slider-price"><span>60 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20831"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/53f4f2d8-5308-4088-9d14-10c3cde1efed-637638781035953790.png" alt="Negresco Pasta" title="Negresco Pasta" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20831"><h6>Negresco Pasta</h6></a> <div class="special-slider-price"><span>80 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20832"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/6ca01698-9654-4146-ada6-e2465d20191c-637638780421697718.png" alt="Bechamel Pasta" title="Bechamel Pasta" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20832"><h6>Bechamel Pasta</h6></a> <div class="special-slider-price"><span>70 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20833"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/0d5decd8-aa1e-4162-bc71-b1874caca8f8-637638782134085088.png" alt="Quattro Formaggi Pasta" title="Quattro Formaggi Pasta" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20833"><h6>Quattro Formaggi Pasta</h6></a> <div class="special-slider-price"><span>80 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20835"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/0797cd27-95a2-4c34-968b-33c3c15b8a93-637630870687514950.png" alt="Sausage Pasta" title="Sausage Pasta" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20835"><h6>Sausage Pasta</h6></a> <div class="special-slider-price"><span>60 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20836"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/f4654557-e307-4393-a2e6-ba907deac6e7-637636379359375618.png" alt="Minced Meat Hawawshi" title="Minced Meat Hawawshi" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20836"><h6>Minced Meat Hawawshi</h6></a> <div class="special-slider-price"><span>80 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20841"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/d1a5385b-a5e9-4d7c-86df-c6bd93caac9f-637636378099531052.png" alt="Etoile Mix Hawawshi" title="Etoile Mix Hawawshi" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20841"><h6>Etoile Mix Hawawshi</h6></a> <div class="special-slider-price"><span>85 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20843"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/fa7e625a-ce31-4e34-b81f-4ac65284eb9d-637639530336105606.png" alt="Galicky Salad" title="Galicky Salad" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20843"><h6>Galicky Salad</h6></a> <div class="special-slider-price"><span>25 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20844"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/99f9be65-e57f-4f41-8797-7e1d33b2692f-637639530175634932.png" alt="Cole Slaw Salad" title="Cole Slaw Salad" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20844"><h6>Cole Slaw Salad</h6></a> <div class="special-slider-price"><span>25 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20845"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20845"><h6>Green Salad</h6></a> <div class="special-slider-price"><span>25 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20846"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20846"><h6>Pickels</h6></a> <div class="special-slider-price"><span>20 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20847"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/1d8837a5-7304-4c1f-8b6f-32bc82dd1245-637639529346751228.png" alt="French Fries" title="French Fries" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20847"><h6>French Fries</h6></a> <div class="special-slider-price"><span>25 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20852"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/739fdf32-694f-4b7a-ab53-9c2735529985-638133702320026223.png" alt="Chicken Pane Crepe" title="Chicken Pane Crepe" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20852"><h6>Chicken Pane Crepe</h6></a> <div class="special-slider-price"><span>80 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20854"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/b591dddc-ad5e-4791-8d06-019250e8fc6a-637636355311798877.png" alt="Chicken Fajita Crepe" title="Chicken Fajita Crepe" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20854"><h6>Chicken Fajita Crepe</h6></a> <div class="special-slider-price"><span>80 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20856"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/1a79d9c1-9526-4edf-bbd8-cef0031c24df-637636355678297677.png" alt="Oriental Sausage Crepe" title="Oriental Sausage Crepe" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20856"><h6>Oriental Sausage Crepe</h6></a> <div class="special-slider-price"><span>65 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20869"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/9293c988-df36-4473-a9fb-25260607c838-637638680184736541.png" alt="Chicken BBQ Pizza" title="Chicken BBQ Pizza" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20869"><h6>Chicken BBQ Pizza</h6></a> <div class="special-slider-price"><span>130 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20885"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/ce25005c-37fa-4a83-977f-162af74dedbb-637638682572867790.png" alt="Tuna Pizza" title="Tuna Pizza" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20885"><h6>Tuna Pizza</h6></a> <div class="special-slider-price"><span>100 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20887"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/fe527a5d-da68-4d18-9462-866dcd17f40a-637638683199372754.png" alt="Sea food Pizza" title="Sea food Pizza" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20887"><h6>Sea food Pizza</h6></a> <div class="special-slider-price"><span>140 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20889"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/7371863c-15c1-49c8-8b24-4b6dfa5ad37e-637638683928601599.png" alt="Margherita Pizza" title="Margherita Pizza" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20889"><h6>Margherita Pizza</h6></a> <div class="special-slider-price"><span>85 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20891"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/78509d44-64f8-46af-ac86-66408ca3a3a7-637638684490691947.png" alt="Hot Dog Pizza" title="Hot Dog Pizza" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20891"><h6>Hot Dog Pizza</h6></a> <div class="special-slider-price"><span>110 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20894"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/923b67f4-b721-4983-a36a-c12e78fdd134-637638682216034594.png" alt="Quattro Formaggi Pizza" title="Quattro Formaggi Pizza" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20894"><h6>Quattro Formaggi Pizza</h6></a> <div class="special-slider-price"><span>130 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20902"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/98b64218-2c56-4fd3-80ea-3626e57b8e36-637638679270762322.png" alt="Four Season Pizza" title="Four Season Pizza" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20902"><h6>Four Season Pizza</h6></a> <div class="special-slider-price"><span>135 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20904"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/26a0a56f-7828-4d3d-bbe0-7516576134b5-637636376008642444.png" alt="Cream ,Honey &amp; Cinnamon Feteer" title="Cream ,Honey &amp; Cinnamon Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20904"><h6>Cream ,Honey &amp; Cinnamon Feteer</h6></a> <div class="special-slider-price"><span>75 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20905"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/f18a96b9-1746-40df-9279-cf02ca560543-637636375440667498.png" alt="Chocolate &amp; Banana Feteer" title="Chocolate &amp; Banana Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20905"><h6>Chocolate &amp; Banana Feteer</h6></a> <div class="special-slider-price"><span>50 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20907"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/ea771332-bc20-4bed-84b7-ae683ea49674-637638678780902017.png" alt="Pepperoni Pizza" title="Pepperoni Pizza" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20907"><h6>Pepperoni Pizza</h6></a> <div class="special-slider-price"><span>115 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20909"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/a2c5997f-55ff-4786-a44b-a0d112be15a4-637636374659209322.png" alt="Konafa &amp; Basbousa Feteer" title="Konafa &amp; Basbousa Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20909"><h6>Konafa &amp; Basbousa Feteer</h6></a> <div class="special-slider-price"><span>60 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20910"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/4374967d-028b-4b79-97ec-043d2606be47-637640449408688123.png" alt="Custard Feteer" title="Custard Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20910"><h6>Custard Feteer</h6></a> <div class="special-slider-price"><span>40 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20912"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/d0d7b15e-7052-4c47-bc01-0880c56aca08-637636369975087667.png" alt="Sausage Feteer" title="Sausage Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20912"><h6>Sausage Feteer</h6></a> <div class="special-slider-price"><span>120 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20915"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/672c164d-37b6-4754-a994-44983852dfde-637636373740405903.png" alt="Sugar Feteer" title="Sugar Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20915"><h6>Sugar Feteer</h6></a> <div class="special-slider-price"><span>40 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20916"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/b7fd6bcf-c5db-42de-8b68-c8a1abaf8ea3-637638787197395195.png" alt="Etoile Mix Feteer" title="Etoile Mix Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20916"><h6>Etoile Mix Feteer</h6></a> <div class="special-slider-price"><span>130 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20918"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/bd3fe9af-b4a1-40f7-a990-d871616833b8-637636369406941239.png" alt="Sea Food Feteer" title="Sea Food Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20918"><h6>Sea Food Feteer</h6></a> <div class="special-slider-price"><span>140 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20923"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/2dcf0c46-da85-493b-88d5-242ccc1768f7-637636368894458848.png" alt="Quattro Formaggi Feteer" title="Quattro Formaggi Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20923"><h6>Quattro Formaggi Feteer</h6></a> <div class="special-slider-price"><span>130 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20931"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/9e046c17-78b0-42b3-863d-a4413ef6ebc2-637636366227781587.png" alt="Minced Beef Feteer" title="Minced Beef Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20931"><h6>Minced Beef Feteer</h6></a> <div class="special-slider-price"><span>125 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20933"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/0d345396-e3f3-4cce-b95e-7b1c14fae00e-637833943174850608.png" alt="Chicken Feteer" title="Chicken Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20933"><h6>Chicken Feteer</h6></a> <div class="special-slider-price"><span>130 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21034"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21034"><h6>Schweppes</h6></a> <div class="special-slider-price"><span>25 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21035"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21035"><h6>Pepsi Can</h6></a> <div class="special-slider-price"><span>25 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21036"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21036"><h6>Mineral water</h6></a> <div class="special-slider-price"><span>15 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21191"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/f0987220-7c52-4035-b9fc-949d57094ada-637780417833669932.png" alt="Chicken Quesadilla" title="Chicken Quesadilla" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21191"><h6>Chicken Quesadilla</h6></a> <div class="special-slider-price"><span>60 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21192"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/b744fd7f-6591-4c3d-80fd-51263c1ab436-638133702069556968.png" alt="Basturma Quesadilla" title="Basturma Quesadilla" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21192"><h6>Basturma Quesadilla</h6></a> <div class="special-slider-price"><span>60 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21194"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/88d4eeec-e140-422d-a085-6a937b3f1917-637780416303451607.png" alt="Baturma &amp; Sausage Feteer" title="Baturma &amp; Sausage Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21194"><h6>Baturma &amp; Sausage Feteer</h6></a> <div class="special-slider-price"><span>135 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21196"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/478f4d02-a114-4d35-a694-81adac3ccdf8-637780412746331253.png" alt="Mexican Chicken Pasta" title="Mexican Chicken Pasta" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21196"><h6>Mexican Chicken Pasta</h6></a> <div class="special-slider-price"><span>75 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21197"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/dc371537-aed9-4dc8-a3bb-921126f3d6ba-637780412129409994.png" alt="Lotus Feteer" title="Lotus Feteer" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21197"><h6>Lotus Feteer</h6></a> <div class="special-slider-price"><span>80 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21198"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/7185e0d2-6764-42cb-bd39-0ae8cfef46e9-637780408953538745.png" alt="Italian Trio" title="Italian Trio" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21198"><h6>Italian Trio</h6></a> <div class="special-slider-price"><span>75 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21447"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/1f59b9c3-990a-4c9c-a2f8-64842ea7c633-638000840938793188.png" alt="Mushroom Steak Sandwich Wrap" title="Mushroom Steak Sandwich Wrap" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21447"><h6>Mushroom Steak Sandwich Wrap</h6></a> <div class="special-slider-price"><span>50 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21448"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/ea44450c-7fc6-43e7-94a1-8006e297ab27-638000841475233124.png" alt="Philly Cheese Steak Sandwich Wrap" title="Philly Cheese Steak Sandwich Wrap" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21448"><h6>Philly Cheese Steak Sandwich Wrap</h6></a> <div class="special-slider-price"><span>50 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21449"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/5d561a43-8bd8-467a-b01a-0624d5941230-638000842429165574.png" alt="Crispy Chicken Sandwich Wrap" title="Crispy Chicken Sandwich Wrap" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21449"><h6>Crispy Chicken Sandwich Wrap</h6></a> <div class="special-slider-price"><span>60 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21450"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/9d115610-fd04-4b1c-9136-07b26098bada-638000842966629654.png" alt="Chicken Agric Sandwich Wrap" title="Chicken Agric Sandwich Wrap" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21450"><h6>Chicken Agric Sandwich Wrap</h6></a> <div class="special-slider-price"><span>50 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21451"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/124292e9-0458-4e11-869c-c9218e80e462-638000843783201153.png" alt="Shish Tawook Sandwich Wrap" title="Shish Tawook Sandwich Wrap" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21451"><h6>Shish Tawook Sandwich Wrap</h6></a> <div class="special-slider-price"><span>50 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21452"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/c425797e-04dc-4aa1-9d35-66b3c22735d8-638000844517817407.png" alt="Man'oucheh" title="Man'oucheh" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21452"><h6>Man'oucheh</h6></a> <div class="special-slider-price"><span>70 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/21504"><img loading="lazy" src="/public/Content/images/NO_image.png" alt="img" class="img-fluid"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/21504"><h6>Hawaiian Pasta</h6></a> <div class="special-slider-price"><span>75 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20837"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/15deeb35-8d1b-4711-8e35-982601ae4505-637636379152950205.png" alt="Sausage Hawawshi" title="Sausage Hawawshi" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20837"><h6>Sausage Hawawshi</h6></a> <div class="special-slider-price"><span>75 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20838"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/3883f505-4dc8-41b2-8fcd-3fa97cbdaa64-637636378844058449.png" alt="Chicken Hawawshi" title="Chicken Hawawshi" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20838"><h6>Chicken Hawawshi</h6></a> <div class="special-slider-price"><span>85 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20840"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/989d7bb5-040f-41aa-b111-ba76f5463a05-637636378541435873.png" alt="Mix Cheese Hawawshi" title="Mix Cheese Hawawshi" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20840"><h6>Mix Cheese Hawawshi</h6></a> <div class="special-slider-price"><span>70 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div><div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="special-slider-inner">
+                            <!----> <!----> <div class="special-slider-img"><a href="/en/product/20853"><img loading="lazy" src="https://xretoile.blob.core.windows.net/xretail/8cc7427c-c839-46e4-883f-03573acbe342-637636356280159360.png" alt="Chicken Crispy Spicy Crepe" title="Chicken Crispy Spicy Crepe" class="img-fluid" style="display: block;"></a> <!----></div> <div class="special-slider-details  text-center pt-3">
+                                <!----> <a href="/en/product/20853"><h6>Chicken Crispy Spicy Crepe</h6></a> <div class="special-slider-price"><span>80 EGP</span> <!----></div> <button tabindex="0" class="btn btn-primary btn-block">
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!----> <!---->
+            </div>
+        </div>
+    </div>
+</div>

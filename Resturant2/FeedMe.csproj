@@ -26,6 +26,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Contact\" />
+  </ItemGroup>
+
   <ProjectExtensions><VisualStudio><UserProperties bundleconfig_1jason__JsonSchema="https://json.schemastore.org/bundleconfig.json" /></VisualStudio></ProjectExtensions>
 
 </Project>
